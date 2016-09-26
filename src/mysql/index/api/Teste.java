@@ -13,7 +13,8 @@ import mysql.index.api.parser.TrackingPersistance;
 public class Teste {
     
     public static void main(String[] args) throws FileNotFoundException, SQLException, ClassNotFoundException, IOException {
-        Connection cn = DBHandler.getConnection();
+        
+    	Connection cn = DBHandler.getConnection();
         System.out.println("Iniciando....");
         TrackingPersistance.readFiles(cn, loadFiles());
         System.out.println("Processo concluído com sucesso!");

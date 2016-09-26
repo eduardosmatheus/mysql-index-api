@@ -6,8 +6,12 @@ import java.sql.SQLException;
 
 public class DBHandler {
     
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+    public static Connection getConnection() throws ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://localhost/parcial1", "root", "kjkszpj");
+        try {
+        	return DriverManager.getConnection("jdbc:mysql://localhost/parcial1", "root", "kjkszpj");			
+		} catch (SQLException e) {
+			throw new RuntimeException("Atenção! Usuário/senha do MySQL inválidos. Verifique os parâmetros.");
+		}
     }
 }

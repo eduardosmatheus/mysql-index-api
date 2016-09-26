@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RouteDAO {
     
@@ -31,13 +31,13 @@ public class RouteDAO {
         return linesAffected > 0;
     }
     
-    public static Set<Route> listByIndex(Connection db, double longitude, double latitude) throws SQLException {
+    public static List<Route> listByIndex(Connection db, double longitude, double latitude) throws SQLException {
     	String sql = "select * from tracking_index where longitude = ? and latitude = ?";
     	PreparedStatement stmt = db.prepareStatement(sql);
     	stmt.setDouble(1, longitude);
     	stmt.setDouble(2, latitude);
     	ResultSet rs = stmt.executeQuery();
-    	Set<Route> result = new HashSet<>();
+    	List<Route> result = new ArrayList<>();
     	while(rs.next()) {
     		result.add(fetchRoute(rs));
     	}
@@ -46,13 +46,13 @@ public class RouteDAO {
     	return result;
     }
     
-    public static Set<Route> list(Connection db, double longitude, double latitude) throws SQLException {
+    public static List<Route> list(Connection db, double longitude, double latitude) throws SQLException {
     	String sql = "select * from tracking where longitude = ? and latitude = ?";
     	PreparedStatement stmt = db.prepareStatement(sql);
     	stmt.setDouble(1, longitude);
     	stmt.setDouble(2, latitude);
     	ResultSet rs = stmt.executeQuery();
-    	Set<Route> result = new HashSet<>();
+    	List<Route> result = new ArrayList<>();
     	while(rs.next()) {
     		result.add(fetchRoute(rs));
     	}
