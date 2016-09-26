@@ -12,6 +12,15 @@ public class Route {
 
     public Route() {}
     
+    public Route(int id, int idTaxi, Timestamp data, double longitude, double latitude) {
+		this.id = id;
+		this.idTaxi = idTaxi;
+		this.data = data;
+		this.longitude = longitude;
+		this.latitude = latitude;
+	}
+
+    
     public int getId() {
         return id;
     }
