@@ -16,13 +16,13 @@ import mysql.index.api.model.RouteDAO;
 public class TrackingPersistance {
 
     public static void persistRoutes(Connection db, File[] files, int numeroDeRegistros) {
-        final ArrayList<Route> routesStream = new ArrayList<>();
+        ArrayList<Route> routes = new ArrayList<>();
         for (File file : files) {
             try {
-                routesStream.addAll(listRoutes(file));
+                routes.addAll(listRoutes(file));
             } catch (IOException e) {}
         }
-        routesStream.stream().limit(numeroDeRegistros).forEach(route -> {
+        routes.stream().limit(numeroDeRegistros).forEach(route -> {
             try {
                 RouteDAO.insertRoute(db, route);
                 RouteDAO.insertRouteWithIndex(db, route);

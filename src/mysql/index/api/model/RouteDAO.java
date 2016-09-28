@@ -62,4 +62,15 @@ public class RouteDAO {
     private static Route fetchRoute(ResultSet rs) throws SQLException {
         return new Route(rs.getInt(2), rs.getTimestamp(3), rs.getString(4), rs.getString(5));
     }
+    
+    public static void deleteAll(Connection db) throws SQLException {
+        String sql = "delete from tracking";
+        PreparedStatement stmt = db.prepareStatement(sql);
+        stmt.executeUpdate();
+        stmt.close();
+        String sqlIndex = "delete from tracking_index";
+        PreparedStatement stmt2 = db.prepareStatement(sqlIndex);
+        stmt2.executeUpdate();
+        stmt2.close();
+    }
 }
