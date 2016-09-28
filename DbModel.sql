@@ -5,17 +5,17 @@ use parcial1;
 create table tracking (
     id int not null auto_increment primary key,
     idTaxi smallint,
-    dataDaMovimentacao timestamp,
-    longitude double,
-    latitude double
+    dataDaMovimentacao date,
+    longitude varchar(20),
+    latitude varchar(20)
 );
 
 create table tracking_index (
     id int not null auto_increment primary key,
     idTaxi smallint,
-    dataDaMovimentacao timestamp,
-    longitude double,
-    latitude double
+    dataDaMovimentacao date,
+    longitude varchar(20),
+    latitude varchar(20)
 );
 
 
