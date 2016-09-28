@@ -11,7 +11,7 @@ public class RouteDAO {
 
     public static boolean insertRoute(Connection db, Route route) throws SQLException {
         PreparedStatement stmt = db.prepareStatement("insert into tracking (idTaxi, dataDaMovimentacao, longitude, latitude) values(?, ?, ?, ?)");
-        stmt.setInt(1, route.getId());
+        stmt.setInt(1, route.getIdTaxi());
         stmt.setTimestamp(2, route.getMomento());
         stmt.setString(3, route.getLongitude());
         stmt.setString(4, route.getLatitude());
@@ -22,7 +22,7 @@ public class RouteDAO {
 
     public static boolean insertRouteWithIndex(Connection db, Route route) throws SQLException {
         PreparedStatement stmt = db.prepareStatement("insert into tracking_index (idTaxi, dataDaMovimentacao, longitude, latitude) values(?, ?, ?, ?)");
-        stmt.setInt(1, route.getId());
+        stmt.setInt(1, route.getIdTaxi());
         stmt.setTimestamp(2, route.getMomento());
         stmt.setString(3, route.getLongitude());
         stmt.setString(4, route.getLatitude());

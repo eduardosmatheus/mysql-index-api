@@ -16,7 +16,6 @@ public class Teste {
     	Connection cn = DBHandler.getConnection();
     	runProcess(cn, 10000);
     	runProcess(cn, 100000);
-//    	runProcess(cn, 1000000);
     }
 
     private static File[] loadFiles() {
@@ -31,8 +30,8 @@ public class Teste {
         cn.commit();
         System.out.println("Processo concluído com sucesso!");
         System.out.println("");
-        String longitude = "39.88632";
-        String latitude = "116.44237";
+        String longitude = "39.83983";
+        String latitude = "116.37729";
         
         Date inicioConsultaSemIndice = new Date();
         RouteDAO.list(cn, longitude, latitude);
@@ -50,6 +49,7 @@ public class Teste {
         System.out.println("Tempo gasto para consulta com índice: " + tempoGastoComIndice + " ms");
         System.out.println("");
         System.out.println("Aguarde, limpando tabelas....");
+        System.out.println("");
         RouteDAO.deleteAll(cn);
         cn.commit();
     }
