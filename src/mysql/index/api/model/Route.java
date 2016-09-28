@@ -7,18 +7,20 @@ public class Route {
     private int id;
     private int idTaxi;
     private Timestamp data;
-    private double longitude;
-    private double latitude;
+    private String longitude;
+    private String latitude;
 
-    public Route() {}
-    
-    public Route(int id, int idTaxi, Timestamp data, double longitude, double latitude) {
+    private Route(int id, int idTaxi, Timestamp data, String longitude, String latitude) {
 		this.id = id;
 		this.idTaxi = idTaxi;
 		this.data = data;
 		this.longitude = longitude;
 		this.latitude = latitude;
 	}
+    
+    public Route(int idTaxi, Timestamp data, String longitude, String latitude){
+    	this(0, idTaxi, data, longitude, latitude);
+    }
 
     
     public int getId() {
@@ -45,20 +47,12 @@ public class Route {
         this.data = data;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
     }
 
     @Override
