@@ -3,7 +3,7 @@ package mysql.index.api.model;
 import java.sql.Timestamp;
 
 public class Route {
-    
+
     private int id;
     private int idTaxi;
     private Timestamp data;
@@ -11,18 +11,17 @@ public class Route {
     private String latitude;
 
     private Route(int id, int idTaxi, Timestamp data, String longitude, String latitude) {
-		this.id = id;
-		this.idTaxi = idTaxi;
-		this.data = data;
-		this.longitude = longitude;
-		this.latitude = latitude;
-	}
-    
-    public Route(int idTaxi, Timestamp data, String longitude, String latitude){
-    	this(0, idTaxi, data, longitude, latitude);
+        this.id = id;
+        this.idTaxi = idTaxi;
+        this.data = data;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
-    
+    public Route(int idTaxi, Timestamp data, String longitude, String latitude) {
+        this(0, idTaxi, data, longitude, latitude);
+    }
+
     public int getId() {
         return id;
     }
