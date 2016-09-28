@@ -20,18 +20,13 @@ public class TrackingPersistance {
         for (File file : files) {
             try {
                 routesStream.addAll(listRoutes(file));
-            } catch (IOException e) {
-                System.out.println("");
-            }
+            } catch (IOException e) {}
         }
-        System.out.println(routesStream.stream().limit(numeroDeRegistros).count());
         routesStream.stream().limit(numeroDeRegistros).forEach(route -> {
             try {
                 RouteDAO.insertRoute(db, route);
                 RouteDAO.insertRouteWithIndex(db, route);
-            } catch (SQLException e) {
-                System.out.println("");
-            }
+            } catch (SQLException e) {}
         });
     }
 
